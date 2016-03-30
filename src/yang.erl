@@ -154,7 +154,7 @@ check_type(X, _) ->
     {true, X}.
 
 check_int_type(N, T) when is_integer(N) ->
-    if 	T == <<"uint8">>, 08 =< N, N =< 255 -> {true, N};
+    if 	T == <<"uint8">>,  0 =< N, N =< 255 -> {true, N};
 	T == <<"uint16">>, 0 =< N, N =< 65535 -> {true, N};
 	T == <<"uint32">>, 0 =< N, N =< 4294967295 -> {true, N};
 	T == <<"uint64">>, 0 =< N, N =< 18446744073709551615 -> {true, N};
@@ -162,7 +162,7 @@ check_int_type(N, T) when is_integer(N) ->
     end.
 
 check_uint_type(N, T) when is_integer(N) ->
-    if T == <<"uint8">>, 08 =< N, N =< 255 -> {true, N};
+    if T == <<"uint8">>,  0 =< N, N =< 255 -> {true, N};
        T == <<"uint16">>, 0 =< N, N =< 65535 -> {true, N};
        T == <<"uint32">>, 0 =< N, N =< 4294967295 -> {true, N};
        T == <<"uint64">>, 0 =< N, N =< 18446744073709551615 -> {true, N};
